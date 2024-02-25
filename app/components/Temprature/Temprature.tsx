@@ -1,8 +1,9 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '@/app/context/globalContext'
 import { kelvinToCelsius } from '@/app/utils/misc'
 import { drizzleIcon, rain, snow, clearSky, cloudy, navigation } from '@/app/utils/Icons'
+import moment from 'moment';
 
 const Temprature = () => {
   const { forecast } = useGlobalContext()
@@ -37,7 +38,20 @@ const Temprature = () => {
 
   const { main: weatherMain, description } = weather[0];
 
-  console.log(weather)
+  useEffect(() => {
+    // Update ever 1 second
+    const interval = setInterval(() => {
+      const localMoment = moment().utcOffset(timezone / 60)
+      // custom format: 12 hour time . change hh to HH for 24 hour time
+      const formatedTime = localMoment.format('hh:mm')
+      //day of the week
+      const day = localMoment.format('dddd')
+      setLocalTime(formatedTime)
+      setCurrentDay(day)
+    }, 1000)
+  }, [])
+
+  // console.log(weather)
 
   return (
     <div className=' px-4 pt-6 pb-5 border rounded-lg flex flex-col justify-between dark:bg-dark-grey shadow-sm dark:shadow-none'>
@@ -55,7 +69,7 @@ const Temprature = () => {
           <span>{getIcon()}</span>
           <p className='pt-2 capitalize text-lg font-medium'>{description}</p>
         </div>
-        <p>
+        <p className=' flex items-center gap-2'>
           <span>Low: {minTemp}°</span>
           <span>High: {maxTemp}°</span>
         </p>
