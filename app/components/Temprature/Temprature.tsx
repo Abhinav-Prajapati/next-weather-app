@@ -4,13 +4,14 @@ import { useGlobalContext } from '@/app/context/globalContext'
 import { kelvinToCelsius } from '@/app/utils/misc'
 import { drizzleIcon, rain, snow, clearSky, cloudy, navigation } from '@/app/utils/Icons'
 import moment from 'moment';
+import { Skeleton } from '@/components/ui/skeleton'
 
 const Temprature = () => {
   const { forecast } = useGlobalContext()
   // console.log(forecast)
   const { main, timezone, name, weather } = forecast
 
-  if (!forecast || !weather) return <div>Loading... </div>
+  if (!forecast || !weather) return <Skeleton className=' h-full w-full col-span-2 md:col-span-full' />
 
   const getIcon = () => {
     switch (weather[0].main) {
@@ -54,7 +55,7 @@ const Temprature = () => {
   // console.log(weather)
 
   return (
-    <div className=' px-4 pt-6 pb-5 border rounded-lg flex flex-col justify-between dark:bg-dark-grey shadow-sm dark:shadow-none'>
+    <div className=' px-4 pt-6 pb-5 border rounded-lg flex flex-col justify-between dark:bg-dark-grey shadow-md dark:shadow-none'>
       <p className="flex justify-between items-center ">
         <span className="font-medium">{currentDay}</span>
         <span className="font-medium">{localTime}</span>
