@@ -1,6 +1,7 @@
 import Navbar from "@/components/ui/Navbar";
 import Temprature from "./components/Temprature/Temprature";
 import AirPollution from "./components/airPollution/airPollution";
+import SunSet from "./components/sunset/SunSet";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <div className=" flex flex-col w-full">
           <div className=" instruments grid w-full gap-4 col-span-full sm-2:col-span-2 lg:grid-cols-3">
             <AirPollution />
+            <SunSet />
           </div>
         </div>
       </div>
