@@ -31,7 +31,8 @@ const AirPollution = () => {
   // console.log(airQualityIndex)
 
   return (
-    <div className=' rounded-md border air-pullution col-span-full sm-2:col-span-2 pt-6 px-4 h-[12rem] flex flex-col gap-8 dark:bg-dark-grey shadow-sm dark:shadow-none'>
+    <div className='air-pollution pt-6 px-4 h-[12rem] border rounded-lg flex flex-col gap-8
+       dark:bg-dark-grey shadow-sm dark:shadow-none col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2'>
       <h1 className=' flex items-center gap-2 font-medium'>
         {thermo} Air Pollution
       </h1>
