@@ -39,16 +39,21 @@ const Temprature = () => {
 
   const { main: weatherMain, description } = weather[0];
 
+  const setTime = () => {
+    const localMoment = moment().utcOffset(timezone / 60)
+    // custom format: 12 hour time . change hh to HH for 24 hour time
+    const formatedTime = localMoment.format('hh:mm')
+    //day of the week
+    const day = localMoment.format('dddd')
+    setLocalTime(formatedTime)
+    setCurrentDay(day)
+  }
+
   useEffect(() => {
     // Update ever 1 second
+    setTime();
     const interval = setInterval(() => {
-      const localMoment = moment().utcOffset(timezone / 60)
-      // custom format: 12 hour time . change hh to HH for 24 hour time
-      const formatedTime = localMoment.format('hh:mm')
-      //day of the week
-      const day = localMoment.format('dddd')
-      setLocalTime(formatedTime)
-      setCurrentDay(day)
+      setTime();
     }, 1000)
   }, [])
 
