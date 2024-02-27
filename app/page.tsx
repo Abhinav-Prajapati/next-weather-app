@@ -2,6 +2,7 @@ import Navbar from "@/components/ui/Navbar";
 import Temprature from "./components/Temprature/Temprature";
 import AirPollution from "./components/airPollution/airPollution";
 import SunSet from "./components/sunset/SunSet";
+import Wind from "./components/wind/Wind";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <div className=" instruments grid w-full gap-4 col-span-full sm-2:col-span-2 lg:grid-cols-3">
             <AirPollution />
             <SunSet />
+            <Wind />
           </div>
         </div>
       </div>
