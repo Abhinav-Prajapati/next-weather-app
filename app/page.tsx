@@ -3,6 +3,7 @@ import Temprature from "./components/Temprature/Temprature";
 import AirPollution from "./components/airPollution/airPollution";
 import SunSet from "./components/sunset/SunSet";
 import Wind from "./components/wind/Wind";
+import DailyForeCast from "./components/DailyForeCast/DailyForeCast";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
             <AirPollution />
             <SunSet />
             <Wind />
+            <DailyForeCast />
           </div>
         </div>
       </div>
